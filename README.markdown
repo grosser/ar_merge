@@ -10,8 +10,11 @@ INSTALL
 
 USAGE
 =====
- - `user.merge!(other,:attributes=>user.attributes.keys,:associations=>%w[movies friends])`
+Merge from outside the model:
 
+    user.merge!(other,:attributes=>user.attributes.keys,:associations=>%w[movies friends])`
+
+Merge from inside the model
 
     User < ActiveRecord::Base
       def merge!(other)
