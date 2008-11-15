@@ -1,0 +1,1 @@
+ActiveRecord::Base.send(:include,AR_Merge)
