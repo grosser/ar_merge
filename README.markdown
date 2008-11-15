@@ -1,6 +1,8 @@
 GOALS
 =====
  - merge 2 AR Objects into one
+ - add associations
+ - overtake attributes if they are blank on the merging-record
 
 
 INSTALL
