@@ -12,6 +12,7 @@ USAGE
 =====
  - `user.merge!(other,:attributes=>user.attributes.keys,:associations=>%w[movies friends])`
 
+
     User < ActiveRecord::Base
       def merge!(other)
         super(other,:attributes=>%w[email website])
