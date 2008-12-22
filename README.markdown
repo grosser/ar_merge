@@ -41,6 +41,11 @@ Merge from inside the model
       end
     end
 
+Merge duplicates
+
+    #merge all new users, that have the same email
+    User.merge_duplicates!(User.find_all_by_status('new')) , :compare=>:email)
+
 AUTHOR
 ======
   Michael Grosser  
