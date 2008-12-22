@@ -10,3 +10,19 @@ task :spec do |t|
   files = FileList['spec/**/*_spec.rb']
   system("spec #{options} #{files}")
 end
+
+require 'rubygems'
+require 'rake'
+require 'echoe'
+
+Echoe.new('ar_merge', '0.1.0') do |p|
+  p.description    = "Simply and securely merge AciveRecord`s."
+  p.url            = "http://github.com/grosser/ar_merge"
+  p.author         = "Michael Grosser"
+  p.email          = "grosser.michael@gmail.com"
+  p.ignore_pattern = ["tmp/*", "script/*"]
+  p.development_dependencies = []
+end
+
+Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }
+

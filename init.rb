@@ -1,1 +1,1 @@
-ActiveRecord::Base.send(:include,AR_Merge)
+require 'ar_merge'

@@ -51,3 +51,5 @@ module AR_Merge
     end
   end
 end
+
+ActiveRecord::Base.send(:include,AR_Merge)
