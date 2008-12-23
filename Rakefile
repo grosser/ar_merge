@@ -28,6 +28,7 @@ end
 Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }
 
 task :update_gemspec do
+  puts "updating..."
   `rake manifest`
   `rake build_gemspec`
 end
