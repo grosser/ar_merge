@@ -15,7 +15,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('ar_merge', '0.1.0') do |p|
+Echoe.new('ar_merge', '0.1.1') do |p|
   p.description    = "Simply and securely merge AciveRecord`s."
   p.url            = "http://github.com/grosser/ar_merge"
   p.author         = "Michael Grosser"
