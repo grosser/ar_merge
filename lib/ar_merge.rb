@@ -1,32 +1,31 @@
 require 'activerecord'
 
 module ARMerge
-  def self.included(base) #:nodoc:
+  def self.included(base)
     base.extend ClassMethods
-    base.send(:include,InstanceMethods)
+    base.send(:include, InstanceMethods)
   end
 
   module InstanceMethods
-    def merge!(other,options={})
+    def merge!(other, options={})
       raise "cannot merge wit a new record" if other.new_record?
       raise "cannot merge with myself" if other == self
 
       #merge associations
       (options[:associations]||[]).each do |association_name|
-        other.send(association_name).each do |object|
-          send(association_name).concat object
+        other.send(association_name).each do |associated|
+          send(association_name) << associated
         end
         
         #update counters, this is very basic/hacky/not secure for customized counters...
         counter = "#{association_name}_count"
-        if other.respond_to?(counter)
-          other.send(counter).times{self.class.increment_counter(counter, id)}
-        end
+        next unless other.respond_to?(counter)
+        self.class.update_counters(id, counter => other.send(counter))
       end
 
       #merge attributes
       (options[:attributes]||[]).each do |attr|
-        send("#{attr}=",other.send(attr)) if send(attr).blank?
+        send("#{attr}=", other.send(attr)) if send(attr).blank?
       end
 
       #cleanup
@@ -49,7 +48,7 @@ module ARMerge
           records[records.index(other)]=nil
           record.merge!(other)
         end
-      end.reject(&:nil?)
+      end.compact
     end
   end
 end
