@@ -95,4 +95,8 @@ describe ARMerge do
       User.merge_duplicates!(@users,:compare=>:name).should == [@u2,@u3]
     end
   end
+
+  it "has a VERSION" do
+    ARMerge::VERSION.should =~ /^\d+\.\d+\.\d+$/
+  end
 end

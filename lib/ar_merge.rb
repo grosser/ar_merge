@@ -1,6 +1,8 @@
 require 'activerecord'
 
 module ARMerge
+  VERSION = File.read( File.join(File.dirname(__FILE__),'..','VERSION') ).strip
+
   def self.included(base)
     base.extend ClassMethods
     base.send(:include, InstanceMethods)
