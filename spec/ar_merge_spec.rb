@@ -1,6 +1,6 @@
 require "spec/spec_helper"
 
-describe AR_Merge do
+describe ARMerge do
   describe :merge! do
     before do
       @user = User.create!(:name=>'x')

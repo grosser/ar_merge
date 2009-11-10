@@ -1,6 +1,6 @@
 require 'activerecord'
 
-module AR_Merge
+module ARMerge
   def self.included(base) #:nodoc:
     base.extend ClassMethods
     base.send(:include,InstanceMethods)
@@ -54,4 +54,4 @@ module AR_Merge
   end
 end
 
-ActiveRecord::Base.send(:include,AR_Merge)
+ActiveRecord::Base.send(:include, ARMerge)
