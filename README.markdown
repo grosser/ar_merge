@@ -1,14 +1,7 @@
-PROBLEM
-=======
- - Merging 2 records is often needed
- - Merging has many hidden & problematic aspects
+Simple merging of 2 ActiveRecord objects, preserving associations and attributes.
 
-
-SOLUTION
-==========
-ActiveRecord extension that introduces a simple merging API.
-
- - Specify associations/attributes you want to merge
+ - Merges associations/attributes you want
+ - Can merge duplicates
  - Protects from self-merges
  - Keeps counters valid
  - Removes merged record
@@ -23,8 +16,7 @@ Rails plugin
 
 OR Gem
 
-    sudo gem install grosser-ar_merge
-    #require ar_merge after activerecord
+    sudo gem install ar_merge -s http://gemcutter.org
 
 
 USAGE
@@ -48,5 +40,6 @@ Merge duplicates
 
 AUTHOR
 ======
-  Michael Grosser  
-  grosser dot michael ät gmail dot com  
+[Michael Grosser](http://pragmatig.wordpress.com)  
+grosser.michael@gmail.com
+Hereby placed under public domain, do what you want, just do not hold me accountable...

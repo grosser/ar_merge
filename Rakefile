@@ -1,34 +1,24 @@
-require 'rubygems'
-require 'spec'
-
-desc 'Default: run spec.'
-task :default => :spec
-
 desc "Run all specs in spec directory"
-task :spec do |t|
+task :default do
   options = "--colour --format progress --loadby --reverse"
   files = FileList['spec/**/*_spec.rb']
   system("spec #{options} #{files}")
 end
 
-require 'rubygems'
-require 'rake'
-require 'echoe'
+begin
+  require 'jeweler'
+  project_name = 'ar_merge'
+  Jeweler::Tasks.new do |gem|
+    gem.name = project_name
+    gem.summary = "Merge of 2 ActiveRecords, secure and simple"
+    gem.email = "grosser.michael@gmail.com"
+    gem.homepage = "http://github.com/grosser/#{project_name}"
+    gem.authors = ["Michael Grosser"]
+    gem.rubyforge_project = project_name
+    gem.add_dependency ['activerecord']
+  end
 
-Echoe.new('ar_merge', '0.1.1') do |p|
-  p.description    = "Simply and securely merge AciveRecord`s."
-  p.url            = "http://github.com/grosser/ar_merge"
-  p.author         = "Michael Grosser"
-  p.email          = "grosser.michael@gmail.com"
-  p.ignore_pattern = ["tmp/*", "script/*"]
-  p.dependencies   = %w[activerecord]
-  p.development_dependencies = []
-end
-
-Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }
-
-task :update_gemspec do
-  puts "updating..."
-  `rake manifest`
-  `rake build_gemspec`
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler, or one of its dependencies, is not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
 end
