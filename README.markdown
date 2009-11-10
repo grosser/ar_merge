@@ -1,5 +1,3 @@
-Simple merging of 2 ActiveRecord objects, preserving associations and attributes.
-
  - Merges associations/attributes you want
  - Can merge duplicates
  - Protects from self-merges

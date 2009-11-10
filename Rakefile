@@ -10,7 +10,7 @@ begin
   project_name = 'ar_merge'
   Jeweler::Tasks.new do |gem|
     gem.name = project_name
-    gem.summary = "Merge of 2 ActiveRecords, secure and simple"
+    gem.summary = "Merge 2 ActiveRecords, preserving associations and attributes"
     gem.email = "grosser.michael@gmail.com"
     gem.homepage = "http://github.com/grosser/#{project_name}"
     gem.authors = ["Michael Grosser"]
