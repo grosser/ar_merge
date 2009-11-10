@@ -1,6 +1,6 @@
-require File.expand_path("spec_helper", File.dirname(__FILE__))
+require "spec/spec_helper"
 
-describe "AR_Merge" do
+describe AR_Merge do
   describe :merge! do
     before do
       @user = User.create!(:name=>'x')
@@ -14,7 +14,7 @@ describe "AR_Merge" do
       end
 
       it "saves the merging user" do
-        @user.expects(:save!)
+        @user.should_receive(:save!)
         @user.merge!(@u2)
       end
     end
@@ -90,8 +90,8 @@ describe "AR_Merge" do
 
     it "merges the first with each of its duplicates" do
       @users = [@u2,@u3,@u1,@u4]
-      @u3.expects(:merge!).with(@u1)
-      @u3.expects(:merge!).with(@u4)
+      @u3.should_receive(:merge!).with(@u1)
+      @u3.should_receive(:merge!).with(@u4)
       User.merge_duplicates!(@users,:compare=>:name).should == [@u2,@u3]
     end
   end

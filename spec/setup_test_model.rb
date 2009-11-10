@@ -1,8 +1,12 @@
-require 'rubygems'
-require 'active_record'
-require 'active_record/fixtures'
+# connect
+ActiveRecord::Base.configurations = {"test" => {
+  :adapter => "sqlite3",
+  :database => ":memory:",
+}.with_indifferent_access}
 
-#create model table
+ActiveRecord::Base.establish_connection(:test)
+
+# create tables
 ActiveRecord::Schema.define(:version => 1) do
   create_table :users do |t|
     t.string :name
@@ -22,7 +26,7 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 end
 
-#create model
+# create models
 class User < ActiveRecord::Base
   has_many :movies
 end

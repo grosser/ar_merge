@@ -1,3 +1,5 @@
+require 'activerecord'
+
 module AR_Merge
   def self.included(base) #:nodoc:
     base.extend ClassMethods
