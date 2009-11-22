@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Grosser"]
-  s.date = %q{2009-11-10}
+  s.date = %q{2009-11-22}
   s.email = %q{grosser.michael@gmail.com}
   s.extra_rdoc_files = [
     "README.markdown"
@@ -28,9 +28,8 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/grosser/ar_merge}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubyforge_project = %q{ar_merge}
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{Merge of 2 ActiveRecords, secure and simple}
+  s.summary = %q{Merge 2 ActiveRecords, preserving associations and attributes}
   s.test_files = [
     "spec/spec_helper.rb",
      "spec/ar_merge_spec.rb",
