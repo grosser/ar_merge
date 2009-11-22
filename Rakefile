@@ -11,7 +11,6 @@ begin
     gem.email = "grosser.michael@gmail.com"
     gem.homepage = "http://github.com/grosser/#{project_name}"
     gem.authors = ["Michael Grosser"]
-    gem.rubyforge_project = project_name
     gem.add_dependency ['activerecord']
   end
 

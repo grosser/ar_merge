@@ -14,7 +14,7 @@ Rails plugin
 
 OR Gem
 
-    sudo gem install ar_merge -s http://gemcutter.org
+    sudo gem install ar_merge
 
 
 USAGE
