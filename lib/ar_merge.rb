@@ -1,4 +1,4 @@
-require 'activerecord'
+require 'active_record'
 
 module ARMerge
   VERSION = File.read( File.join(File.dirname(__FILE__),'..','VERSION') ).strip
