@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ar_merge (0.1.3)
+    ar_merge (0.2.0)
       activerecord
 
 GEM
