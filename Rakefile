@@ -8,9 +8,10 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = project_name
     gem.summary = "Merge 2 ActiveRecords, preserving associations and attributes"
-    gem.email = "grosser.michael@gmail.com"
-    gem.homepage = "http://github.com/grosser/#{project_name}"
+    gem.email = "michael@grosser.it"
+    gem.homepage = "https://github.com/grosser/#{project_name}"
     gem.authors = ["Michael Grosser"]
+    gem.license = "MIT"
   end
 
   Jeweler::GemcutterTasks.new

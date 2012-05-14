@@ -10,11 +10,11 @@ INSTALL
 
 Rails plugin
 
-    script/plugin install git://github.com/grosser/ar_merge.git
+    rails plugin install git://github.com/grosser/ar_merge.git
 
 OR Gem
 
-    sudo gem install ar_merge
+    gem install ar_merge
 
 
 USAGE
@@ -38,6 +38,6 @@ Merge duplicates
 
 AUTHOR
 ======
-[Michael Grosser](http://pragmatig.wordpress.com)  
-grosser.michael@gmail.com
-Hereby placed under public domain, do what you want, just do not hold me accountable...
+[Michael Grosser](grosser.it)</br>
+michael@grosser.it</br>
+License: MIT
