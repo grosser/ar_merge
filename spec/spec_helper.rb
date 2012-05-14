@@ -1,4 +1,3 @@
-require 'rubygems'
 $LOAD_PATH << "lib"
-require "init"
-require "spec/setup_test_model"
+require "ar_merge"
+require "./spec/setup_test_model"
