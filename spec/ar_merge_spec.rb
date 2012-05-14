@@ -40,7 +40,7 @@ describe ARMerge do
         @user.movies.size.should == Movie.count
       end
 
-      it "overtakes asociated objects" do
+      it "overtakes associated objects" do
         @u2.merge!(@user,:associations=>[:movies])
         @u2.reload.should have(Movie.count).movies
       end

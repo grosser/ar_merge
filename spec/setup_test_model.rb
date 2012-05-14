@@ -29,6 +29,9 @@ end
 # create models
 class User < ActiveRecord::Base
   has_many :movies
+  def movies_count
+    movies.count
+  end
 end
 
 class CountingUser < ActiveRecord::Base

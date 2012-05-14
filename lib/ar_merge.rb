@@ -21,7 +21,7 @@ module ARMerge
         
         #update counters, this is very basic/hacky/not secure for customized counters...
         counter = "#{association_name}_count"
-        next unless other.respond_to?(counter)
+        next unless other.respond_to?(counter) and respond_to?("#{counter}=")
         self.class.update_counters(id, counter => other.send(counter))
       end
 
