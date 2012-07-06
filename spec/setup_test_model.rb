@@ -1,10 +1,8 @@
 # connect
-ActiveRecord::Base.configurations = {"test" => {
+ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
-  :database => ":memory:",
-}.with_indifferent_access}
-
-ActiveRecord::Base.establish_connection(:test)
+  :database => ":memory:"
+)
 
 # create tables
 ActiveRecord::Schema.define(:version => 1) do
