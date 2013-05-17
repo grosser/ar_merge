@@ -105,6 +105,5 @@ describe ARMerge do
     ARMerge::VERSION.should_not == ActiveRecord::VERSION
     defined?(ActiveRecord::Version).should == nil
     defined?(ActiveRecord::Base::Version).should == nil
-    defined?(ActiveRecord::Base::VERSION).should == nil
   end
 end
