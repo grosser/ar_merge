@@ -2,11 +2,6 @@ require 'ar_merge/version'
 require 'active_record'
 
 module ARMerge
-  def self.included(base)
-    base.extend ClassMethods
-    base.send(:include, InstanceMethods)
-  end
-
   module InstanceMethods
     def merge!(other, options={})
       raise "cannot merge wit a new record" if other.new_record?
@@ -17,7 +12,7 @@ module ARMerge
         other.send(association_name).each do |associated|
           send(association_name) << associated
         end
-        
+
         #update counters, this is very basic/hacky/not secure for customized counters...
         counter = "#{association_name}_count"
         next unless other.respond_to?(counter) and respond_to?("#{counter}=")
@@ -54,4 +49,5 @@ module ARMerge
   end
 end
 
-ActiveRecord::Base.send(:include, ARMerge)
+ActiveRecord::Base.send(:include, ARMerge::InstanceMethods)
+ActiveRecord::Base.send(:extend, ARMerge::ClassMethods)

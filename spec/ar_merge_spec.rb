@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe ARMerge do
-  describe :merge! do
+  describe "#merge!" do
     before do
       @user = User.create!(:name=>'x')
       @u2 = User.create!(:name=>'y')
@@ -71,7 +71,7 @@ describe ARMerge do
     end
   end
 
-  describe :merge_duplicates! do
+  describe "#merge_duplicates!" do
     before do
       @u1 = User.create!(:name=>'a')
       @u2 = User.create!(:name=>'b')
@@ -99,5 +99,12 @@ describe ARMerge do
 
   it "has a VERSION" do
     ARMerge::VERSION.should =~ /^\d+\.\d+\.\d+$/
+  end
+
+  it "does not mess up activerecord version" do
+    ARMerge::VERSION.should_not == ActiveRecord::VERSION
+    defined?(ActiveRecord::Version).should == nil
+    defined?(ActiveRecord::Base::Version).should == nil
+    defined?(ActiveRecord::Base::VERSION).should == nil
   end
 end
