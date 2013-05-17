@@ -4,40 +4,42 @@
  - Keeps counters valid
  - Removes merged record
 
-
 INSTALL
 =======
 
-Rails plugin
-
-    rails plugin install git://github.com/grosser/ar_merge.git
-
-OR Gem
-
-    gem install ar_merge
+```Bash
+gem install ar_merge
+```
 
 
 USAGE
 =====
 Merge from outside the model:
 
-    user.merge!(other,:attributes=>user.attributes.keys,:associations=>%w[movies friends])`
+```Ruby
+user.merge!(other,:attributes=>user.attributes.keys,:associations=>%w[movies friends])`
+```
 
 Merge from inside the model
 
-    User < ActiveRecord::Base
-      def merge!(other)
-        super(other,:attributes=>%w[email website])
-      end
-    end
+```Ruby
+User < ActiveRecord::Base
+  def merge!(other)
+    super(other,:attributes=>%w[email website])
+  end
+end
+```
 
 Merge duplicates
 
-    #merge all new users, that have the same email
-    User.merge_duplicates!(User.find_all_by_status('new')) , :compare=>:email)
+```Ruby
+#merge all new users, that have the same email
+User.merge_duplicates!(User.find_all_by_status('new')) , :compare=>:email)
+```
 
 AUTHOR
 ======
 [Michael Grosser](grosser.it)</br>
 michael@grosser.it</br>
+[![Build Status](https://travis-ci.org/grosser/ar_merge.png)](https://travis-ci.org/grosser/ar_merge)<br/>
 License: MIT
