@@ -1,0 +1,39 @@
+PATH
+  remote: /Users/mgrosser/code/tools/ar_merge
+  specs:
+    ar_merge (0.2.0)
+      activerecord
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activerecord (2.3.18)
+      activesupport (= 2.3.18)
+    activesupport (2.3.18)
+    appraisal (0.5.2)
+      bundler
+      rake
+    bump (0.4.1)
+    diff-lcs (1.2.4)
+    rake (10.0.4)
+    rspec (2.13.0)
+      rspec-core (~> 2.13.0)
+      rspec-expectations (~> 2.13.0)
+      rspec-mocks (~> 2.13.0)
+    rspec-core (2.13.1)
+    rspec-expectations (2.13.0)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.13.1)
+    sqlite3 (1.3.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord (~> 2.3.18)
+  appraisal
+  ar_merge!
+  bump
+  rake
+  rspec (~> 2)
+  sqlite3

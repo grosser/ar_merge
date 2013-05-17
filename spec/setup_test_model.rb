@@ -1,4 +1,5 @@
 # connect
+ActiveRecord::Schema.verbose = false
 ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
   :database => ":memory:"

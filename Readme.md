@@ -37,6 +37,10 @@ Merge duplicates
 User.merge_duplicates!(User.find_all_by_status('new')) , :compare=>:email)
 ```
 
+TODO
+====
+ - 1 counter test fails on rails 4 (search for pending)
+
 AUTHOR
 ======
 [Michael Grosser](grosser.it)</br>
