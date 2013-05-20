@@ -9,14 +9,14 @@ module ARMerge
 
       #merge associations
       (options[:associations]||[]).each do |association_name|
-        other.send(association_name).each do |associated|
-          send(association_name) << associated
-        end
+        send(association_name).concat other.send(association_name)
 
-        #update counters, this is very basic/hacky/not secure for customized counters...
-        counter = "#{association_name}_count"
-        next unless other.respond_to?(counter) and respond_to?("#{counter}=")
-        self.class.update_counters(id, counter => other.send(counter))
+        if ActiveRecord::VERSION::MAJOR < 4
+          #update counters, this is very basic/hacky/not secure for customized counters...
+          counter = "#{association_name}_count"
+          next unless other.respond_to?(counter) and respond_to?("#{counter}=")
+          self.class.update_counters(id, counter => other.send(counter))
+        end
       end
 
       #merge attributes

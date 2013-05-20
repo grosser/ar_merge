@@ -7,7 +7,7 @@ describe ARMerge do
       @u2 = User.create!(:name=>'y')
     end
 
-    describe :removal do
+    describe "removal" do
       it "removes the merged user" do
         @user.merge!(@u2)
         lambda{@u2.reload}.should raise_error(ActiveRecord::RecordNotFound)
@@ -19,7 +19,7 @@ describe ARMerge do
       end
     end
 
-    describe :attributes do
+    describe "attributes" do
       it "merges and overtakes attributes" do
         @user.name = ''
         @user.merge!(@u2,:attributes=>['name'])
@@ -32,7 +32,7 @@ describe ARMerge do
       end
     end
 
-    describe :associations do
+    describe "associations" do
       before do
         Movie.delete_all
         @user.movies << Movie.new
@@ -50,7 +50,6 @@ describe ARMerge do
       end
 
       it "keeps counters in sync" do
-        pending if ActiveRecord::VERSION::MAJOR == 4
         user, merged_user = CountingUser.create!, CountingUser.create!
         user.movies_count.should == 0
         merged_user.movies << Movie.new

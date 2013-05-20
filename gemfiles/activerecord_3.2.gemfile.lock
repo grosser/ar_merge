@@ -1,7 +1,7 @@
 PATH
   remote: /Users/mgrosser/code/tools/ar_merge
   specs:
-    ar_merge (0.2.0)
+    ar_merge (0.3.0)
       activerecord
 
 GEM
